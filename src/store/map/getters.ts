@@ -4,8 +4,9 @@ import { StateInterface } from '../index';
 
 
 const getters: GetterTree<MapState, StateInterface> = {
-    someGetter( /* state */ ) {
-        // return true;
+    isMapReady( state  ) {
+        // Doble negacion para pasar de undefined a false y de false a true
+        return !!state.map;
     }
 }
 

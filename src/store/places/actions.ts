@@ -2,6 +2,9 @@ import { ActionTree } from 'vuex';
 import { PlacesState } from './state';
 import { StateInterface } from '../index';
 
+import { searchApi } from '@/apis';
+import { PlacesResponse } from '@/interfaces/places';
+
 
 const actions: ActionTree<PlacesState, StateInterface> = {
     // La action recibe el commit para mutar el state
@@ -18,6 +21,17 @@ const actions: ActionTree<PlacesState, StateInterface> = {
                 throw new Error('No geolocation :(')
             }
         )
+    },
+
+    //TODO: colocar el valor de retorno
+    async searchPlacesByTerm({ commit, state }, query: string) {
+
+        const resp = await searchApi.get<PlacesResponse>(`/${ query }.json`, {
+            params: {
+                proximity: state.userLocation?.join(',')
+            }
+        });
+
     }
 }
 

@@ -2,7 +2,7 @@ import Mapboxgl from 'mapbox-gl';
 
 export interface MapState {
     map?: Mapboxgl.Map;
-    marker: Mapboxgl.Marker[];
+    markers: Mapboxgl.Marker[];
     distance?: number;
     duration?: number;
 }
@@ -10,7 +10,7 @@ export interface MapState {
 function state(): MapState {
     return {
         map: undefined,
-        marker: [],
+        markers: [],
         distance: undefined,
         duration: undefined,
     }

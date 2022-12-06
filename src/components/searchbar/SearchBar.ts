@@ -30,7 +30,7 @@ export default defineComponent({
 
                         searchPlacesByTerm( val );
                         
-                    }, 500);
+                    }, 1000);
                 }
             })
         }
